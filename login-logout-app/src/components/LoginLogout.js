@@ -26,15 +26,16 @@ handleButtonClick = () => {
   render(){
     const isLoggedIn = this.state.isLoggedIn
     // console.log("in render isLoggedIn=>", isLoggedIn)
-    let button ;
-    if(isLoggedIn){
-      button = <button onClick={this.handleButtonClick}>Logout</button>
+    let button = isLoggedIn? <button onClick={this.handleButtonClick}>Logout</button> : <button onClick={this.handleButtonClick}>Login</button>
+    // if(isLoggedIn){
+    //   button = <button onClick={this.handleButtonClick}>Logout</button>
       
       
-    } else {
-      button = <button onClick={this.handleButtonClick}>Login</button>
+    // } else {
+    //   button = <button onClick={this.handleButtonClick}>Login</button>
 
-    }
+    // }
+
     return(
       <div>
         <Greeting isLoggedIn={isLoggedIn} />
