@@ -14,7 +14,7 @@ const RenderInputFields  = ({noOfInputFields}) => {
 
   return (
     <div>
-      {inputFields}
+    {inputFields}
     </div>
   )
  
