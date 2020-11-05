@@ -1,7 +1,7 @@
 import React from "react"
 
 const Card = (props) => {
-  const {givenName, surname, email, phone, houseName, street, suburb, state, postcode, country} = props
+  const {givenName, surname, email, phone, houseName, street, suburb, state, postcode, country, isGoing} = props
   return(
     <div>
       <h1>{givenName} {surname}</h1>
@@ -10,7 +10,7 @@ const Card = (props) => {
       <h3>Address: {houseName} {street} {suburb} {state}</h3>
       <h3>Postcode: {postcode}</h3>
       <h3>Country: {country}</h3>
-
+  
     </div>
   )
 }

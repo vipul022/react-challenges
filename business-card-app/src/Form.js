@@ -13,16 +13,24 @@ class Form extends React.Component {
       suburb: "",
       state: "",
       postcode: "",
-      country: ""
-
+      country: "",
+      isGoing: false
     }
   }
 
   onInputChange = (event) => {
-    // ! destructuring the event.targer below to use name and value in setState
-    const {name ,value} = event.target
-    console.log("name", name)
+    // ! destructuring the event.target below to use name and value in setState
+    // !const {name ,value} = event.target
+    //! console.log("name", name)
+    //! console.log("value=>", value)
+    // !this.setState({[name]: value})
+
+    // !below the the value of checkbox toggles between true and false by checking and unchecking the checkbox
+    const target = event.target
+    console.log("target.checked=>", target.checked)
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     console.log("value=>", value)
+    const name = target.name
     this.setState({[name]: value})
   }
   // handleSubmit = (event) =>{
@@ -30,12 +38,12 @@ class Form extends React.Component {
 
   // }
   render() {
-    const {givenName, surname, email, phone, houseName, street, suburb, state, postcode, country} = this.state
+    const {givenName, surname, email, phone, houseName, street, suburb, state, postcode, country, isGoing} = this.state
 
     return(
       <div>
         <h1>{givenName} {surname}</h1>
-        {/* onChange={(event) => this.onInputChange("painter",event)} */}
+        
         <form onSubmit={this.handleSubmit}>
           <label>Given Name
             <input type="text" name="givenName" value={this.state.givenName} onChange={this.onInputChange}/>
@@ -68,6 +76,9 @@ class Form extends React.Component {
           <label>Country
             <input type="text" name="country" value={this.state.country} onChange={this.onInputChange}/>
           </label>
+          <label>Is Going
+            <input type="checkbox" name="isGoing"  checked={this.state.isGoing} onChange={this.onInputChange}/>
+          </label>
         </form>
         <Card
           givenName={givenName}
@@ -80,7 +91,7 @@ class Form extends React.Component {
           state={state}
           postcode={postcode}
           country={country}
-
+          
         />
       </div>
     ) 
