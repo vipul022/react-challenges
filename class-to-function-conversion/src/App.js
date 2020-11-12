@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import useLocalStorage from "./useLocalStorage";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
-  const onClickHandle = (event) => {
-    event.preventDefault();
-    setCount(count + 1);
-  };
+  const [count, setCount] = useLocalStorage("count", 0);
 
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={onClickHandle}>Click me</button>
+      <button onClick={(e) => setCount(count + 1)}>Click me</button>
     </div>
   );
 };
